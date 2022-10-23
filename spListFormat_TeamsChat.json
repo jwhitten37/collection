@@ -1,0 +1,195 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": "auto",
+  "width": 254,
+  "hideSelection": true,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "style": {
+      "text-align": "center"
+    },
+    "attributes": {
+      "class": "sp-card-container"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "ms-bgColor-white sp-css-borderColor-neutralLight sp-card-subContainer"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "display": "flex",
+              "margin": "0 auto",
+              "padding": "10px"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "attributes": {
+                  "class": "sp-card-userContainer sp-card-keyboard-focusable"
+                },
+                "children": [
+                  {
+                    "elmType": "img",
+                    "defaultHoverField": "[$OIC_x002f_NCOIC]",
+                    "attributes": {
+                      "src": "=getUserImage([$OIC_x002f_NCOIC.email], 'S')",
+                      "class": "sp-card-userThumbnail"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "style": {
+              "display": "=if(length([$OIC_x002f_NCOIC]) == 1, '', 'none')"
+            },
+            "defaultHoverField": "[$OIC_x002f_NCOIC]",
+            "txtContent": "[$OIC_x002f_NCOIC.title]"
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "attributes": {
+                  "title": "[$Title]",
+                  "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent",
+                  "role": "heading",
+                  "aria-level": "3"
+                },
+                "style": {
+                  "padding": "5px"
+                },
+                "txtContent": "=if ([$Title] == '', '–', [$Title])"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-lastTextColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "children": [
+                  {
+                    "elmType": "a",
+                    "style": {
+                      "padding": "8px 20px",
+                      "font-size": "14px",
+                      "text-decoration": "none",
+                      "color": "white",
+                      "background-color": "#505AC9",
+                      "border-radius": "7px"
+                    },
+                    "txtContent": " Chat",
+                    "attributes": {
+                      "target": "_blank",
+                      "iconName": "TeamsLogo",
+                      "class": "sp-field-quickActions",
+                      "href": {
+                        "operator": "+",
+                        "operands": [
+                          "https://dod.teams.microsoft.us/l/chat/0/0?users=",
+                          "[$OIC_x002f_NCOIC.email]"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+		  {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-lastTextColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "children": [
+                  {
+                    "elmType": "a",
+                    "style": {
+                      "padding": "8px 20px",
+                      "font-size": "14px",
+                      "text-decoration": "none",
+                      "color": "white",
+                      "background-color": "#505AC9",
+                      "border-radius": "7px"
+                    },
+                    "txtContent": " Call",
+                    "attributes": {
+                      "target": "_blank",
+                      "iconName": "TeamsLogo",
+                      "class": "sp-field-quickActions",
+                      "href": {
+                        "operator": "+",
+                        "operands": [
+                          "https://dod.teams.microsoft.us/l/call/0/0?users=",
+                          "[$OIC_x002f_NCOIC.email]"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-lastTextColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "children": [
+                  {
+                    "elmType": "a",
+                    "style": {
+                      "padding": "8px 20px",
+                      "font-size": "14px",
+                      "text-decoration": "none",
+                      "color": "white",
+                      "background-color": "#00A4EF",
+                      "border-radius": "7px"
+                    },
+                    "txtContent": " Email",
+                    "attributes": {
+                      "target": "_blank",
+                      "iconName": "OutlookLogo",
+                      "class": "sp-field-quickActions",
+                      "href": {
+                        "operator": "+",
+                        "operands": [
+                          "mailto:",
+                          "[$OIC_x002f_NCOIC.email]"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
