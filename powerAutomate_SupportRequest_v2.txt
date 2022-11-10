@@ -1,0 +1,558 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_microsoftforms": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedmicrosoftforms_9f35f"
+        },
+        "api": {
+          "name": "shared_microsoftforms"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedsharepointonline_83c6d"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_b461b"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_planner": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedplanner_21442"
+        },
+        "api": {
+          "name": "shared_planner"
+        }
+      },
+      "shared_teams": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedteams_24a4a"
+        },
+        "api": {
+          "name": "shared_teams"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_new_Request_is_submitted": {
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_microsoftforms",
+              "operationId": "CreateFormWebhook",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftforms"
+            },
+            "parameters": {
+              "form_id": "****"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_Request_Details": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_microsoftforms",
+              "operationId": "GetFormResponseById",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftforms"
+            },
+            "parameters": {
+              "form_id": "****",
+              "response_id": "@triggerOutputs()?['body/resourceData/responseId']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Satellite_Photo": {
+          "runAfter": {
+            "Get_Request_Details": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetFileContentByPath",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "URL",
+              "path": "/PATH",
+              "inferContentType": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Format_Requested_Start_Date": {
+          "runAfter": {
+            "Get_Satellite_Photo": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "Compose",
+          "inputs": "@formatDateTime(outputs('Get_Request_Details')?['body/****'], 'M-d-yyyy hh:mm')"
+        },
+        "Format_32-day_Submit_Date": {
+          "runAfter": {
+            "Format_Requested_Start_Date": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "Compose",
+          "inputs": "@formatDateTime(addDays(utcNow(),32),'M-d-yyyy hh:mm')"
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "Format_32-day_Submit_Date": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@outputs('Get_Request_Details')?['body/****']",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Initialize_array_of_JSON_information_from_uploaded_document": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "documentDetails",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Check_for_32_day_Start_Date_Requirement": {
+          "actions": {
+            "Confirmation_email_to_who_created_the_ticket": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "****"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365_1",
+                  "operationId": "SendEmailV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                },
+                "parameters": {
+                  "emailMessage/To": "@outputs('Get_Request_Details')?['body/****']",
+                  "emailMessage/Subject": "**ETP Required**",
+                  "emailMessage/Body": "<div style=\"width:75%;height:100%;margin:auto;text-align:center;background-color:#F8F8FF;\">\n<div style=\"width:100%;\">\n<div style=\"width:100%;text-align:center;\">\n<table style=\"width:100%;background-color:#F5F5F5;border:lightgrey;border-width:4px;border-style:outset;\">\n<tr>\n<th style=\"vertical-align:middle;width:113px;height:113px;\"><img src=\"data:@{outputs('Get_Satellite_Photo')?['body']['$content-type']};base64,@{outputs('Get_Satellite_Photo')?['body']['$content']}\" width=\"113px\" height=\"113px\" alt=\"Satellite Photo\"/></th>\n<td><p style=\"font-family:arial;font-size:20px;font-weight:bold;\">Support Request has been submitted under 32 days!</p>\n<p style=\"font-family:arial;font-size:20px;color:#FF8C00;\">Mission Name: @{outputs('Get_Request_Details')?['body/****']} requires an ETP.</p>\n<p style=\"font-family:arial;font-size:13px;\">Contact **** for questions/issues regrading this request.</p></td>\n<th style=\"vertical-align:middle;width:113px;height:113px;\"><img src=\"data:@{outputs('Get_Satellite_Photo')?['body']['$content-type']};base64,@{outputs('Get_Satellite_Photo')?['body']['$content']}\" width=\"113px\" height=\"113px\" alt=\"Satellite Photo\"/></th>\n</tr>\n</table>\n</div>\n<div style=\"width:100%;text-align:center;\">\n<p style=\"font-size:12px\">Support Request designed by ****</p>\n</div>\n</div>\n</div>",
+                  "emailMessage/From": "****",
+                  "emailMessage/Importance": "High"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Generate_email_of_ticket_to_Support_Team_distro": {
+              "runAfter": {
+                "Confirmation_email_to_who_created_the_ticket": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "****"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365_1",
+                  "operationId": "SendEmailV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                },
+                "parameters": {
+                  "emailMessage/To": "****",
+                  "emailMessage/Subject": "Support Request",
+                  "emailMessage/Body": "<p><br>\nSupport Request submitted for Mission Name: @{outputs('Get_Request_Details')?['body/****']}<br>\n<br>\n** MISSION REQUIRES AN ETP **<br>\n<br>\nPlease review the Operations Planner for details.</p>",
+                  "emailMessage/From": "****",
+                  "emailMessage/Importance": "High"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_array_of_JSON_information_from_uploaded_document": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Confirmation_email_to_who_created_the_ticket_2": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "****"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_office365_1",
+                    "operationId": "SendEmailV2",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                  },
+                  "parameters": {
+                    "emailMessage/To": "@outputs('Get_Request_Details')?['body/****']",
+                    "emailMessage/Subject": "Support Request",
+                    "emailMessage/Body": "<div style=\"width:75%;height:100%;margin:auto;text-align:center;background-color:#F8F8FF;\">\n<div style=\"width:100%;\">\n<div style=\"width:100%;text-align:center;\">\n<table style=\"width:100%;background-color:#F5F5F5;border:lightgrey;border-width:4px;border-style:outset;\">\n<tr>\n<th style=\"vertical-align:middle;width:113px;height:113px;\"><img src=\"data:@{outputs('Get_Satellite_Photo')?['body']['$content-type']};base64,@{outputs('Get_Satellite_Photo')?['body']['$content']}\" width=\"113px\" height=\"113px\" alt=\"Satellite Photo\"/></th>\n<td><p style=\"font-family:arial;font-size:20px;font-weight:bold;\">Support Request has been submitted under 32 days!</p>\n<p style=\"font-family:arial;font-size:20px;color:#FF8C00;\">Mission Name: @{outputs('Get_Request_Details')?['body/****']}</p>\n<p style=\"font-family:arial;font-size:13px;\">Contact **** for questions/issues regrading this request.</p></td>\n<th style=\"vertical-align:middle;width:113px;height:113px;\"><img src=\"data:@{outputs('Get_Satellite_Photo')?['body']['$content-type']};base64,@{outputs('Get_Satellite_Photo')?['body']['$content']}\" width=\"113px\" height=\"113px\" alt=\"Satellite Photo\"/></th>\n</tr>\n</table>\n</div>\n<div style=\"width:100%;text-align:center;\">\n<p style=\"font-size:12px\">Support Request designed by ****</p>\n</div>\n</div>\n</div>",
+                    "emailMessage/From": "****",
+                    "emailMessage/Importance": "High"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Generate_email_of_ticket_to_Support_Team_distro_2": {
+                "runAfter": {
+                  "Confirmation_email_to_who_created_the_ticket_2": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "****"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_office365_1",
+                    "operationId": "SendEmailV2",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                  },
+                  "parameters": {
+                    "emailMessage/To": "****",
+                    "emailMessage/Subject": "Support Request",
+                    "emailMessage/Body": "<p><br>\nSupport Request submitted for Mission Name: @{outputs('Get_Request_Details')?['body/****']}<br>\n<br>\n<br>\nPlease review the Operations Planner for details.</p>",
+                    "emailMessage/From": "****",
+                    "emailMessage/Importance": "High"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "lessOrEquals": [
+              "@outputs('Format_Requested_Start_Date')",
+              "@outputs('Format_32-day_Submit_Date')"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "If"
+        },
+        "Create_task_in_Microsoft_Teams_Planner": {
+          "runAfter": {
+            "Check_for_32_day_Start_Date_Requirement": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_planner",
+              "operationId": "CreateTask_V3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_planner"
+            },
+            "parameters": {
+              "body/groupId": "****",
+              "body/planId": "****",
+              "body/title": "@outputs('Get_Request_Details')?['body/****']",
+              "body/bucketId": "****",
+              "body/startDateTime": "@outputs('Get_Request_Details')?['body/submitDate']",
+              "body/dueDateTime": "@outputs('Format_Requested_Start_Date')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Update_the_task_details_for_the_newly_created_ticket_1": {
+          "runAfter": {
+            "Create_task_in_Microsoft_Teams_Planner": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_planner",
+              "operationId": "UpdateTaskDetails_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_planner"
+            },
+            "parameters": {
+              "id": "@outputs('Create_task_in_Microsoft_Teams_Planner')?['body/id']",
+              "body/description": "Start Date:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nEnd Date:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nBaseband Only:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nMain Location:\n\tName:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLatitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLongitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nJump Location 1:\n\tName:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLatitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLongitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nJump Location 2:\n\tName:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLatitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLongitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nJump Location 3:\n\tName:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLatitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\n\tLongitude:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nModulation type:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nBand:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nTerminals:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nRequesting COMSEC:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nContact Information:\n\tEmail:\n\t@{outputs('Get_Request_Details')?['body/responder']}\n\n\tPhone:\n\t@{outputs('Get_Request_Details')?['body/****']}\n\nAdditional Comments:\n@{outputs('Get_Request_Details')?['body/****']}\n"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Post_ticket_creation_to_Helpdesk_Teams_channel_1": {
+          "runAfter": {
+            "Update_the_task_details_for_the_newly_created_ticket_1": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_teams",
+              "operationId": "PostMessageToConversation",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
+            },
+            "parameters": {
+              "poster": "User",
+              "location": "Channel",
+              "body/recipient/groupId": "****",
+              "body/recipient/channelId": "****",
+              "body/messageBody": "<table style=\"width:100%;border:orange;border-width:5px;border-style:dashed\">\n<tr>\n<th style=\"text-align:center;font-size:25px;\">SUPPORT REQUEST SUBMITTED</th>\n</tr>\n<tr>\n<th style=\"text-align:center;font-size:25px\"><a href=\"https://****/_djb2_msteams_prefix_3834992347?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2****%2fHome%2fPlanViews%2****&context=%7b%0d%0a++%22subEntityId%22%3a+%22@{outputs('Create_task_in_Microsoft_Teams_Planner')?['body/id']}%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%****%40thread.tacv2%22%0d%0a%7d&tenantId=****\">@{outputs('Create_task_in_Microsoft_Teams_Planner')?['body/title']}</a></th>\n</tr>\n</table>"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Check_if_a_document_was_uploaded_(repeat)": {
+          "actions": {
+            "Create_a_new_folder_for_attached_ticket_documents": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "****"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "CreateNewFolder",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "https://****",
+                  "table": "****",
+                  "parameters/path": "/General/Requests/@{outputs('Get_Request_Details')?['body/****']}"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Do_the_following_for_each_document_attached_to_the_ticket": {
+              "foreach": "@body('Parse_JSON')",
+              "actions": {
+                "Get_the_each_file_metadata": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "****"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline",
+                      "operationId": "GetFileMetadataByPath",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "https://****",
+                      "path": "/****/@{items('Do_the_following_for_each_document_attached_to_the_ticket')?['name']}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Move_the_file_to_newly_created_ticket_folder": {
+                  "runAfter": {
+                    "Get_the_each_file_metadata": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "****"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline",
+                      "operationId": "MoveFileAsync",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "https://****",
+                      "parameters/sourceFileId": "@outputs('Get_the_each_file_metadata')?['body/Id']",
+                      "parameters/destinationDataset": "https://****",
+                      "parameters/destinationFolderPath": "/****/@{outputs('Create_a_new_folder_for_attached_ticket_documents')?['body/{Name}']}",
+                      "parameters/nameConflictBehavior": 2
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Create_a_new_folder_for_attached_ticket_documents": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "****"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Post_ticket_creation_to_Helpdesk_Teams_channel_1": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@outputs('Get_Request_Details')?['body/****']",
+                ""
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "If"
+        },
+        "Condition": {
+          "actions": {},
+          "runAfter": {
+            "Check_if_a_document_was_uploaded_(repeat)": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Update_task_details": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "****"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_planner",
+                    "operationId": "UpdateTaskDetails_V2",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_planner"
+                  },
+                  "parameters": {
+                    "id": "@outputs('Create_task_in_Microsoft_Teams_Planner')?['body/id']",
+                    "body/checklist": [
+                      {
+                        "id": "1",
+                        "title": "JIST Submitted",
+                        "isChecked": false
+                      },
+                      {
+                        "id": "2",
+                        "title": "JIST Approved",
+                        "isChecked": false
+                      },
+                      {
+                        "id": "3",
+                        "title": "ACAS Submitted",
+                        "isChecked": false
+                      },
+                      {
+                        "id": "4",
+                        "title": "ACAS Approved",
+                        "isChecked": false
+                      }
+                    ]
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@outputs('Get_Request_Details')?['body/****']",
+              "Yes"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "****"
+          },
+          "type": "If"
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}

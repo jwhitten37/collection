@@ -1,0 +1,11 @@
+Sort(Filter('Ticket Data',If(filterSelection.Selected.Name = "Assigned to Me",AssignedTo=varUserLastName),ID=Value(inputFilter.Value)),ID,SortOrder.Descending)
+
+Switch(filterSelection.Selected,'Assigned to Me',Sort(Filter('Ticket Data',varUserLastName = AssignedTo),ID,SortOrder.Descending),"Filter by T#",Sort(Filter('Ticket Data',IsBlank(inputFilter.Value)||Value(inputFilter.Value) = ID),ID,SortOrder.Descending))
+
+Sort(Office365Groups.ListGroupMembers("****").value,displayName,Ascending)
+
+If(varSelectedID = galleryTicketSelector.Selected.ID,varShowAssignee,false)
+
+Sort(Filter('Ticket Data',AssignedTo.Email=User().Email),ID,SortOrder.Descending)
+Sort(Filter('Ticket Data',ID=Value(inputFilter.Value)||IsBlank(inputFilter.Value)),ID,SortOrder.Descending)
+Sort('Ticket Data',ID,SortOrder.Descending)
