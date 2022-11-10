@@ -1,0 +1,57 @@
+{
+    "elmType": "div",
+    "attributes": {
+        "class": "ms-borderColor-neutralTertiary"
+    },
+    "style": {
+        "width": "100%",
+        "margin-bottom": "15px",
+        "background-color": "#49888B"
+    },
+    "children": [
+        {
+            "elmType": "div",
+            "style": {
+                "display": "flex",
+                "align-items": "center"
+            },
+            "children": [
+                {
+                    "elmType": "div",
+                    "style": {
+                        "flex": "none",
+                        "padding": "0px",
+                        "padding-left": "10px",
+                        "height": "40px",
+                        "color": "white"
+                    }
+                }
+            ]
+        },
+        {
+            "elmType": "div",
+            "attributes": {
+                "class": "ms-fontColor-themePrimary ms-borderColor-themePrimary ms-fontWeight-bold ms-fontSize-xl ms-fontColor-neutralSecondary–hover ms-bgColor-themeLight–hover"
+            },
+            "style": {
+                "box-sizing": "border-box",
+                "width": "100%",
+                "text-align": "center",
+                "padding": "21px 12px",
+                "overflow": "hidden",
+                "color": "white"
+            },
+            "children": [
+                {
+                    "elmType": "div",
+                    "attributes": {
+                        "iconName": "Car",
+                        "class": "ms-fontSize-32 ms-fontWeight-normal",
+                        "title": "Car Icon"
+                    },
+                    "txtContent": "****"
+                }
+            ]
+        }
+    ]
+}

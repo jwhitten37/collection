@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/calendar-formatting.schema.json",
+  "additionalEventClass": {
+    "operator": ":",
+    "operands": [
+      {
+        "operator": "<",
+        "operands": [
+          {
+            "operator": "Date()",
+            "operands": [
+              {
+                "operator": "toDateString()",
+                "operands": [
+                  {
+                    "operator": "Date()",
+                    "operands": [
+                      "[$EndDateAndTime]"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "Date()",
+            "operands": [
+              {
+                "operator": "toDateString()",
+                "operands": [
+                  {
+                    "operator": "Date()",
+                    "operands": [
+                      "@now"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgGray' , 'sp-css-backgroundColor-BgLightGray sp-css-color-LightGrayFont')+' sp-field-fontSizeSmall'",
+      {
+        "operator": ":",
+        "operands": [
+          {
+            "operator": "==",
+            "operands": [
+              "[$Recurrence_x0020_Type]",
+              "Daily"
+            ]
+          },
+          "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgBrown' , 'sp-css-backgroundColor-BgGold sp-css-color-GoldFont')+' sp-field-fontSizeSmall'",
+          {
+            "operator": ":",
+            "operands": [
+              {
+                "operator": "==",
+                "operands": [
+                  "[$Recurrence_x0020_Type]",
+                  "Weekly"
+                ]
+              },
+              "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgDarkGreen' , 'sp-css-backgroundColor-BgSage sp-css-color-SageFont')+' sp-field-fontSizeSmall'",
+              {
+                "operator": ":",
+                "operands": [
+                  {
+                    "operator": "==",
+                    "operands": [
+                      "[$Recurrence_x0020_Type]",
+                      "Monthly"
+                    ]
+                  },
+                  "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgLavender' , 'sp-css-backgroundColor-BgLightPurple sp-css-color-LightPurpleFont')+' sp-field-fontSizeSmall'",
+                  ""
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "commandBarProps": {
+    "commands": [
+      {
+        "key": "delete",
+        "selectionModes": [
+          "SingleSelection"
+        ],
+        "text": "=if([$Recurrence] == 'No','Delete Instance','Delete Series')"
+      }
+    ]
+  }
+}

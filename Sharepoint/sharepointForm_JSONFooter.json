@@ -1,0 +1,28 @@
+{
+    "elmType": "div",
+    "style": {
+        "width": "100%",
+        "text-align": "center",
+        "overflow": "hidden",
+        "border-top-width": "1px"
+    },
+    "children": [
+        {
+            "elmType": "div",
+            "style": {
+                "width": "100%",
+                "padding-top": "10px",
+                "height": "36px",
+                "font-weight": "bold",
+                "font-size": "18px",
+                "font-style": "italic"
+            },
+            "children": [
+                {
+                    "elmType": "a",
+                    "txtContent": "For any issues with this form, please contact ****."
+                }
+            ]
+        }
+    ]
+}

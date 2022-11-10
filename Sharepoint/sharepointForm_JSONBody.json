@@ -1,0 +1,27 @@
+{
+    "sections": [
+        {
+            "displayname": "",
+            "fields": [
+                "Title"
+            ]
+        },
+        {
+            "displayname": "Details",
+            "fields": [
+                "Category",
+                "Section",
+                "Vehicle Type",
+                "Location"
+            ]
+        },
+        {
+            "displayname": "DTG",
+            "fields": [
+                "Start Time",
+                "End Time",
+                "Description"
+            ]
+        }
+    ]
+}

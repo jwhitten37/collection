@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if mso]>
+    <xml>
+       <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+       </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+</head>
+<body style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0;" bgcolor="#f2f2f2">
+    
+    <!--[if mso]>
+    <style type="text/css">
+       body, table, td { font-family: 'Segoe UI', sans-serif !important; }
+       a { color: #0000EE; }
+    </style>
+    <![endif]-->
+    <div align="center" style="padding:32px 8px">
+        
+
+<!--[if mso]>
+        <table width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 auto;max-width:640px;border:1px solid #c8c8c8;box-shadow:0px 3px 6px rgba(0,0,0,0.05);border-radius:8px;overflow:hidden;background-color:#ffffff;background:#ffffff;">
+        <![endif]-->
+<!--[if !mso]><!---->
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:0 auto;max-width:640px;border:1px solid #c8c8c8;box-shadow:0px 3px 6px rgba(0,0,0,0.05);border-radius:8px;overflow:hidden;background-color:#ffffff;background:#ffffff;width:100%">
+    <!--<![endif]-->
+    <!--[if mso]>
+    <tr>
+       <td style="font-size: 1px; line-height: 1px; background: #ffffff" valign="top" width="56">&nbsp;</td>
+       <td style="font-size: 1px; line-height: 1px; background: #ffffff" valign="top" width="528">&nbsp;</td>
+       <td style="font-size: 1px; line-height: 1px; background: #ffffff" valign="top" width="56">&nbsp;</td>
+    </tr>
+    <![endif]-->
+    <colgroup>
+        <!--[if !mso]><!---->
+        <col width="56" style="width:8.75%">
+        <col width="528" style="width:82.5%">
+        <col width="56" style="width:8.75%">
+        <!--<![endif]-->
+    </colgroup>
+    <tbody>
+        <tr>
+            <td colspan="3" style="padding-top:32px;padding-right:32px;padding-left:32px;background:#ffffff" align="middle"><img width="40" height="auto" src="cid:****" alt="File Request Response" style="display:block"></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="padding-top:16px;padding-right:32px;padding-left:32px;padding-bottom:32px;border-bottom:1px solid #dedede;background:#ffffff" align="center">
+                <p style="color:#323130;font-size:24px;font-weight:600;line-height:32px;margin:0;max-width:400px;padding:0;text-align:center">
+                    New files were uploaded to your request for &quot;Technical Support Ticket / Documents:&quot;
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1" style="padding:36px 0px 36px 32px;width:24px;background-color:#f8f8f8"><img src="cid:32dedf60-c98f-47f2-95e5-bc965a878252" alt="File Icon" width="24" height="24" style="display:block"></td>
+            <td colspan="2" style="text-align:left;padding:36px 36px 36px 12px;background-color:#f8f8f8">1_****.docx</td>
+        </tr>
+
+        
+            <tr>
+                <td colspan="3" style="padding:36px;height:40px;background-color:#ffffff;text-align:center;border-top:1px solid #dedede;border-bottom:none">
+                    <!--[if mso]>
+                    <a href="https://****Technical%20Support%20Ticket/Documents" trackobject>
+                       <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://****Technical%20Support%20Ticket/Documents" trackobject style="height:40px;v-text-anchor:middle;width:168px" arcsize="2%" strokecolor=#0078d4 fillcolor=#0078d4>
+                          <w:anchorlock/>
+                          <center style="color:#ffffff;font-family: 'Segoe UI', sans-serif;font-size:16px">See new files</center>
+                       </v:roundrect>
+                    </a>
+                    <![endif]-->
+                    <!--[if !mso]> <!---->
+                    <a href="https://****Technical%20Support%20Ticket/Documents" style="background-color:#0078d4;border-color:#0078d4;border-radius:2px;border-style:solid;color:#ffffff;display:inline-block;font-size:16px;text-decoration:none;text-align:center;line-height:40px;width:168px" trackobject="">
+                        See new files
+                    </a>
+                    <!-- <![endif]-->
+                </td>
+            </tr>
+        </tbody>
+</table>
+
+        
+
+<!--[if mso]>
+         <table width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin:0 auto;max-width:640px;overflow:hidden;">
+         <![endif]-->
+<!--[if !mso]><!---->
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:0 auto;max-width:640px;overflow:hidden;width:100%">
+    <!--<![endif]-->
+    <!--[if mso]>
+    <tr>
+       <td style="font-size: 1px; line-height: 1px; background: none" valign="top" width="64">&nbsp;</td>
+       <td style="font-size: 1px; line-height: 1px; background: none" valign="top" width="256">&nbsp;</td>
+       <td style="font-size: 1px; line-height: 1px; background: none" valign="top" width="135">&nbsp;</td>
+       <td style="font-size: 1px; line-height: 1px; background: none" valign="top" width="175">&nbsp;</td>
+    </tr>
+    <![endif]-->
+    <colgroup>
+        <!--[if !mso]><!---->
+        <col width="64" style="width:10%">
+        <col width="256" style="width:40%">
+        <col width="135" style="width:21.09375%">
+        <col width="175" style="width:27.34375%">
+        <!--<![endif]-->
+    </colgroup>
+    <tbody>
+        <tr>
+            <td valign="top" colspan="2" style="vertical-align:top;height:18px;padding:16px"><img src="cid:c599c27a-1968-4bc5-ba27-7060311bca41" width="84" height="18" alt="Microsoft logo" style="display:block"></td>
+            <td colspan="2" style="font-size:12px;height:18px;mso-line-height-rule:exactly;line-height:18px;width:50%;color:#605e5c;text-align:right;padding:16px">
+                <span style="font-size:12px;line-height:20px;color:#323130;font-weight:400;margin:0px;padding:0px;display:inline-block">
+                    <a href="https://privacy.microsoft.com/en-us/privacystatement/" style="padding:0;margin:0;color:#605e5c">Privacy Statement</a>
+                </span>
+
+                    <span style="font-size:12px;line-height:20px;color:#605e5c;font-weight:400;margin:0px;padding:0px;display:inline-block">&nbsp;|&nbsp;</span>
+                    <span style="font-size:12px;line-height:20px;color:#323130;font-weight:400;margin:0px;padding:0px;display:inline-block"><a href="https://****_layouts/15/onedrive.aspx?p=22" style="padding:0;margin:0;color:#605e5c">Notification Settings</a></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+
+</body></html>

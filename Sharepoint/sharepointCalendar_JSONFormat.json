@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/calendar-formatting.schema.json",
+  "commandBarProps": {
+    "commands": [
+      {
+        "key": "delete",
+        "selectionModes": [
+          "SingleSelection"
+        ],
+        "text": "=if([$Recurrence] == 'No','Delete Instance','Delete Series')"
+      }
+    ]
+  },
+  "additionalEventClass": {
+    "operator": ":",
+    "operands": [
+      {
+        "operator": "==",
+        "operands": [
+          "[$Recurrence_x0020_Type]",
+          "Daily"
+        ]
+      },
+      "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgGreen' , 'sp-css-backgroundColor-BgMintGreen sp-css-color-MintGreenFont')+' sp-field-fontSizeSmall'",
+      {
+        "operator": ":",
+        "operands": [
+          {
+            "operator": "==",
+            "operands": [
+              "[$Recurrence_x0020_Type]",
+              "Weekly"
+            ]
+          },
+          "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgBrown' , 'sp-css-backgroundColor-BgGold sp-css-color-GoldFont')+' sp-field-fontSizeSmall'",
+          {
+            "operator": ":",
+            "operands": [
+              {
+                "operator": "==",
+                "operands": [
+                  "[$Recurrence_x0020_Type]",
+                  "Monthly"
+                ]
+              },
+              "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgLavender' , 'sp-css-backgroundColor-BgLightPurple sp-css-color-LightPurpleFont')+' sp-field-fontSizeSmall'",
+              {
+                "operator": ":",
+                "operands": [
+                  {
+                    "operator": "==",
+                    "operands": [
+                      "[$Recurrence_x0020_Type]",
+                      "Yearly"
+                    ]
+                  },
+                  "=if(@isSelected == true, 'sp-css-color-WhiteFont sp-css-backgroundColor-BgDarkBlue' , 'sp-css-backgroundColor-BgLightBlue sp-css-color-LightBlueFont')+' sp-field-fontSizeSmall'",
+                  ""
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

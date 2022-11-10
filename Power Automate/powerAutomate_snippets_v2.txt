@@ -1,0 +1,41 @@
+\\apcknhqua0001xv\21. Graphics\56 TFC Logo.png
+https://eurman.ds.army.mil/apcknhqua0001xv/MDTF/21.%20Graphics/2d%20MDTF%20Logo.png
+
+
+<table style="width:100%;border:red;border-width:5px;border-style:dashed">
+<tr>
+<th rowspan="2" style="width:25%;text-align:center;font-size:35px">&#10071 
+ &#10071  &#10071  &#10071</th>
+<th style="text-align:center;font-size:25px;">VIP TICKET CREATED</th>
+<th rowspan="2" style="width:25%;text-align:center;font-size:35px">&#10071 
+ &#10071  &#10071  &#10071</th>
+</tr>
+<tr>
+<th style="text-align:center;font-size:25px"><a href="https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_2604128717?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2f3UvU5xaDT0CrdLpZj3GeY4wAFYO3&context=%7b%0d%0a++%22subEntityId%22%3a+%22@{items('Apply_to_each_2')?['id']}%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a4aea84c7e9314f9ba721a0849ec7c505%40thread.skype%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43">@{items('Apply_to_each_2')?['title']}</a></th>
+</tr>
+</table>
+
+
+https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_3047561829?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2frW9IEhPaXECV59CqZ9cxAYwAESTR&label=(VIP)+SSG+Rivera%2c+Juan+in+Support+Tickets&context=%7b%0d%0a++%22subEntityId%22%3a+%22z3nDQEJ02kOTK2iPmKBy_4wADcqW%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a5bd9a6a3309d4eb6a7fda91f3f2c21ef%40thread.tacv2%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43
+
+
+https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_3047561829?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2frW9IEhPaXECV59CqZ9cxAYwAESTR&context=%7b%0d%0a++%22subEntityId%22%3a+%22___%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a5bd9a6a3309d4eb6a7fda91f3f2c21ef%40thread.tacv2%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43
+
+https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_3047561829?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2frW9IEhPaXECV59CqZ9cxAYwAESTR&label=(VIP)+SGT+Rivera%2c+Juan+in+Support+Tickets&context=%7b%0d%0a++%22subEntityId%22%3a+%22mZULFXh9E0-yzcdZdHn6mYwAGUu3%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a5bd9a6a3309d4eb6a7fda91f3f2c21ef%40thread.tacv2%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43
+
+
+
+https://attachments-dod.office365-net.us/owa/justin.w.whitten.mil%40army.mil/service.svc/s/GetAttachmentThumbnail?id=AAMkADcwZWQwNTA1LTg4YjItNGY4OC05Yzc2LTMxMzMxNDlmMTkyOQBGAAAAAAAouendnjnEQIrZTHvroP2WBwDhuaYFqBrdSJkJ2dL4J0C5AAAAImFdAADXqL%2BrinxNRI9CVZoweEqsAAAdYKh4AAABEgAQALnyHNRFW%2FBOuVHGoc1y8uk%3D&thumbnailType=2&token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjhGRjI3RkVBMTA1MDhEODg5QjI2MDFCOTc5OEQ5QUQyREQ1MEY1RjAiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJqX0pfNmhCUWpZaWJKZ0c1ZVkyYTB0MVE5ZkEifQ.eyJvcmlnaW4iOiJodHRwczovL3dlYm1haWwuYXBwcy5taWwiLCJ1YyI6IjQ3MDc4NzE0ZTJlNzQxNWJiMjhiNWMzMzc1OWQwNGFjIiwic2lnbmluX3N0YXRlIjoiW1wiaW5rbm93bm50d2tcIixcImttc2lcIl0iLCJ2ZXIiOiJFeGNoYW5nZS5DYWxsYmFjay5WMSIsImFwcGN0eHNlbmRlciI6Ik93YURvd25sb2FkQGZhZTZkNzBmLTk1NGItNDgxMS05MmI2LTA1MzBkNmY4NGM0MyIsImlzc3JpbmciOiJET0QiLCJhcHBjdHgiOiJ7XCJtc2V4Y2hwcm90XCI6XCJvd2FcIixcInB1aWRcIjpcIjExNTM4MTExMTU3NzI3OTAxMDBcIixcInNjb3BlXCI6XCJPd2FEb3dubG9hZFwiLFwib2lkXCI6XCIxZDJlNjA1My0xMzkxLTRiODAtYTFjOS04MzQyOWFhMzkwNDFcIixcInByaW1hcnlzaWRcIjpcIlMtMS01LTIxLTE4OTIzNjM2MTYtMjcxMjczNzY4Ni0zOTE5MDkxNTQ4LTE1MTgyOTUxXCJ9IiwibmJmIjoxNjUwNjM1OTUzLCJleHAiOjE2NTA2MzY1NTMsImlzcyI6IjAwMDAwMDAyLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEBmYWU2ZDcwZi05NTRiLTQ4MTEtOTJiNi0wNTMwZDZmODRjNDMiLCJhdWQiOiIwMDAwMDAwMi0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvYXR0YWNobWVudHMtZG9kLm9mZmljZTM2NS1uZXQudXNAZmFlNmQ3MGYtOTU0Yi00ODExLTkyYjYtMDUzMGQ2Zjg0YzQzIn0.NNjWjihrddogLz4ID3W2iUcqCtzfieoJK_Qd--t7WWdfMreUfkP4fsXf5cR19XMcFDxwZHe5LInAgmyf3QH3N3RyBllYe5aFxhXuhM7yxDg81yAhdc3QaDaqQD0UnbxcteyiUhISFMKsDwS6PYbkmRVZzoe1-m4MUKWsJA6alORadN-81X5cH67ZFW-6lEoH9wt0amiE4Vd8h0xKOvy37SHVHZVEaPUy7Aq5nHP4MCycsiV380W5LynC0tjRrz6ABe0gMd3jEguL2s1X9OQBFZpOtCgDnKYCZz9Bel3TWD42vyolKDJSikjfY9XW1uCZQH3QqajhdFqu6bQPTGMHMg&X-OWA-CANARY=cbkj2ht-WkyiuBXsaIdWLPCFK01oJNoYYZomntEaFRyKRYSY_lwirt_zj9q4pyWpSgcC6tnzhRc.&owa=webmail.apps.mil&scriptVer=20220401003.11&animation=true
+
+
+
+data:@{outputs('Get_56th_TFC_Logo')?['body']['$content-type']};base64,@{outputs('Get_56th_TFC_Logo')?['body']['$content']}
+
+
+https://armyeitaas.sharepoint-mil.us/teams/2MDTFHELPDESK/Shared%20Documents/MDTF_Logo_v1.png?csf=1&web=1&e=XSOmZa
+
+
+<img class="ts-image" target-src="" lazy-load="true" data-tid="messageBodyImageSrc" style="width:auto;height:auto" src="">
+
+
+https://armyeitaas.sharepoint-mil.us/teams/2MDTFHELPDESK/Shared%20Documents/General/MDTF_Logo_v1.png

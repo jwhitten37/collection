@@ -1,0 +1,58 @@
+ylGtOK1Lx02WpVxwgXEEMowAE-Jr
+
+@{outputs('Get_response_details')?['body/r137aaf0727204c0193131bbee904d2b2']} @{outputs('Get_response_details')?['body/r869e634f2c76466c806722521d73882a']}, @{outputs('Get_response_details')?['body/rd87b4efbe5174a8eb3420d1967998b75']} submitted a helpdesk ticket:
+
+Computing Environment: @{outputs('Get_response_details')?['body/rebd8ac52627d41fc940071e05a1b44d7']}
+System Type: @{outputs('Get_response_details')?['body/r680ca4ef3e0f4f8a8ed2c68fb6cff362']}
+System Name: @{outputs('Get_response_details')?['body/r1a8fe836e7dd4d2f9313a8452c14a80f']}
+Mac Address: @{outputs('Get_response_details')?['body/ra8fc0ec88992486b91131c91c127f43c']}
+IP Address: @{outputs('Get_response_details')?['body/r48dde2707cb54b169981deb9a5a6fca8']}
+Assigned to: @{items('Apply_to_each')?['responder/displayName']}
+
+Approve Helpdesk Ticket creation from @{outputs('Get_response_details')?['body/r137aaf0727204c0193131bbee904d2b2']} @{outputs('Get_response_details')?['body/r869e634f2c76466c806722521d73882a']}, @{outputs('Get_response_details')?['body/rd87b4efbe5174a8eb3420d1967998b75']} for @{outputs('Get_response_details')?['body/rebd8ac52627d41fc940071e05a1b44d7']} @{outputs('Get_response_details')?['body/r680ca4ef3e0f4f8a8ed2c68fb6cff362']} issue.
+
+
+2d MDTF Technical Support Ticket created for VIP @{outputs('Get_response_details')?['body/r137aaf0727204c0193131bbee904d2b2']} @{outputs('Get_response_details')?['body/r6bc86655f6cb4c108f78fd1dfdb968c8']}, @{outputs('Get_response_details')?['body/r410a967f8c124127b6ca0c9df111fa79']}.
+
+Created by @{outputs('Get_response_details')?['body/responder']} at @{outputs('Get_response_details')?['body/submitDate']}. Contact @ @{outputs('Get_response_details')?['body/r1f8251ff2cba4ba4b00704cb95039643']}.
+
+
+usarmy.wiesbaden.usareur.list.mdtf-s6@army.mil;
+
+2d MDTF Technical Support Ticket created for VIP @{outputs('Get_response_details')?['body/r137aaf0727204c0193131bbee904d2b2']} @{outputs('Get_response_details')?['body/r6bc86655f6cb4c108f78fd1dfdb968c8']}, @{outputs('Get_response_details')?['body/r410a967f8c124127b6ca0c9df111fa79']}.
+
+System Enclave: @{outputs('Get_response_details')?['body/rd52049b3094545c6b4417e0468cf8275']}
+Support Needed: @{outputs('Get_response_details')?['body/r1bdb589461094c7ab3798c1eee0cf25b']}
+System Name: @{outputs('Get_response_details')?['body/r549239e33a1249b68f17f74ab091cef1']}
+System Location: @{outputs('Get_response_details')?['body/r5fd45e00414146fe899bdd86f7254750']}
+MAC Address: @{outputs('Get_response_details')?['body/r37e6893fbd7b483698d01f4369b1207d']}
+IP Address: @{outputs('Get_response_details')?['body/r7f385fb5f32645c092ff3a0b0eb29fdd']}
+Additional Information: @{outputs('Get_response_details')?['body/r41224d09b76c4d8da65335a7cc2083fe']}
+Documents: @{outputs('Get_response_details')?['body/rf2aba3e0bc1140f7a250dda9f95635f1']}
+
+Created by @{outputs('Get_response_details')?['body/responder']} at @{outputs('Get_response_details')?['body/submitDate']}. Contact @ @{outputs('Get_response_details')?['body/r1f8251ff2cba4ba4b00704cb95039643']}
+
+(VIP) @{outputs('Get_response_details')?['body/r137aaf0727204c0193131bbee904d2b2']} @{outputs('Get_response_details')?['body/r6bc86655f6cb4c108f78fd1dfdb968c8']}, @{outputs('Get_response_details')?['body/r410a967f8c124127b6ca0c9df111fa79']} has a(n) @{outputs('Get_response_details')?['body/rd52049b3094545c6b4417e0468cf8275']} @{outputs('Get_response_details')?['body/r1bdb589461094c7ab3798c1eee0cf25b']} issue that needs resolved ASAP.
+
+@{items('Apply_to_each_2')?['responder/userPrincipalName']} accepted this ticket on @{items('Apply_to_each_2')?['responseDate']}.
+
+@{items('Apply_to_each_2')?['responder/userPrincipalName']} accepted the Techincal Support Ticket for (VIP) @{outputs('Get_response_details')?['body/r137aaf0727204c0193131bbee904d2b2']} @{outputs('Get_response_details')?['body/r6bc86655f6cb4c108f78fd1dfdb968c8']}, @{outputs('Get_response_details')?['body/r410a967f8c124127b6ca0c9df111fa79']} on @{outputs('Create_a_task')?['body/startDateTime']}.
+
+Please contact 2d MDTF Technical Support Team @ 537-7337 for further information regarding this ticket.
+
+
+https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_2604128717?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2f3UvU5xaDT0CrdLpZj3GeY4wAFYO3&label=(VIP)+CW2+Whitten%2c+Justin+in+Flow+Test&context=%7b%0d%0a++%22subEntityId%22%3a+%22WljgLdtaMEmKFNuEYP2THYwADxzX%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a4aea84c7e9314f9ba721a0849ec7c505%40thread.skype%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43
+
+https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_2604128717?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2f3UvU5xaDT0CrdLpZj3GeY4wAFYO3&label=(VIP)+CW2+Whitten%2c+Justin+in+Flow+Test&context=%7b%0d%0a++%22subEntityId%22%3a+%22zPYeQP8eokua0haZoSlchIwAFuEt%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a4aea84c7e9314f9ba721a0849ec7c505%40thread.skype%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43
+
+https://dod.teams.microsoft.us/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_2604128717?webUrl=https%3a%2f%2ftasks.osi.apps.mil%2ffae6d70f-954b-4811-92b6-0530d6f84c43%2fHome%2fPlanViews%2f3UvU5xaDT0CrdLpZj3GeY4wAFYO3&label=(VIP)+CW2+Whitten%2c+Justin+in+Flow+Test&context=%7b%0d%0a++%22subEntityId%22%3a+%22zPYeQP8eokua0haZoSlchIwAFuEt%22%2c%0d%0a++%22channelId%22%3a+%2219%3adod%3a4aea84c7e9314f9ba721a0849ec7c505%40thread.skype%22%0d%0a%7d&tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43
+
+
+https://dod.teams.microsoft.us/l/file/FD0D7340-FF68-4275-89A1-D4CDD5D95776?tenantId=fae6d70f-954b-4811-92b6-0530d6f84c43&fileType=docx&objectUrl=https%3A%2F%2Farmyeitaas.sharepoint-mil.us%2Fteams%2FThritee7%2FShared%20Documents%2FGeneral%2FDocument.docx&baseUrl=https%3A%2F%2Farmyeitaas.sharepoint-mil.us%2Fteams%2FThritee7&serviceName=teams&threadId=19:dod:4aea84c7e9314f9ba721a0849ec7c505@thread.skype&groupId=cac33b9f-ad0e-4978-8f11-738a1004f4e7
+
+https://armyeitaas.sharepoint-mil.us/teams/Thritee7/_layouts/15/Doc.aspx?OR=teams&action=edit&sourcedoc={FD0D7340-FF68-4275-89A1-D4CDD5D95776}
+
+armyeitaas.sharepoint-mil.us/teams/Thritee7/Shared Documents/Lexmark%20CX725%20TTP.pdf?web=1
+
+
+https://dod.teams.microsoft.us/_#/files/General?threadId=19%3Adod%3A4aea84c7e9314f9ba721a0849ec7c505%40thread.skype&ctx=channel&context=(VIP)%2520CW2%2520Whitten%252C%2520Justin&rootfolder=%252Fteams%252FThritee7%252FShared%2520Documents%252FGeneral%252F(VIP)%2520CW2%2520Whitten%252C%2520Justin

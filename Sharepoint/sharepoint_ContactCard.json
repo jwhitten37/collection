@@ -1,0 +1,191 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": "auto",
+  "width": 250,
+  "hideSelection": true,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "style": {
+      "text-align": "center"
+    },
+    "attributes": {
+      "class": "sp-card-container"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "attributes": {
+          "class": "ms-bgColor-white sp-css-borderColor-neutralLight  sp-card-subContainer"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-previewColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "display": "flex"
+                },
+                "children": [
+                  {
+                    "elmType": "p",
+                    "attributes": {
+                      "class": "sp-card-userEmptyText"
+                    },
+                    "txtContent": "=if(length([$OIC_x002f_NCOIC]) == 0, '–', '')"
+                  },
+                  {
+                    "forEach": "personIterator in [$OIC_x002f_NCOIC]",
+                    "elmType": "a",
+                    "attributes": {
+                      "class": "=if(loopIndex('personIterator') >= 5, 'sp-card-userContainer', 'sp-card-userContainer sp-card-keyboard-focusable')"
+                    },
+                    "style": {
+                      "display": "=if(loopIndex('personIterator') >= 5, 'none', '')",
+                      "background-color": "red"
+                    },
+                    "children": [
+                      {
+                        "elmType": "img",
+                        "defaultHoverField": "[$personIterator]",
+                        "attributes": {
+                          "src": "=getUserImage([$personIterator.email], 'S')",
+                          "class": "sp-card-userThumbnail"
+                        },
+                        "style": {
+                          "display": "=if(length([$OIC_x002f_NCOIC]) > 5 && loopIndex('personIterator') >= 4, 'none', '')"
+                        }
+                      },
+                      {
+                        "elmType": "div",
+                        "attributes": {
+                          "class": "ms-bgColor-neutralLight ms-fontColor-neutralSecondary sp-card-userOthers"
+                        },
+                        "style": {
+                          "display": "=if(length([$OIC_x002f_NCOIC]) > 5 && loopIndex('personIterator') == 4, '', 'none')"
+                        },
+                        "customCardProps": {
+                          "formatter": {
+                            "elmType": "div",
+                            "attributes": {
+                              "class": "sp-card-personCallout"
+                            },
+                            "children": [
+                              {
+                                "forEach": "personIterator in [$OIC_x002f_NCOIC]",
+                                "elmType": "div",
+                                "attributes": {
+                                  "class": "sp-card-userContainer sp-card-userCustomCard"
+                                },
+                                "style": {
+                                  "display": "=if(loopIndex('personIterator') < 4, 'none', '')"
+                                },
+                                "children": [
+                                  {
+                                    "elmType": "img",
+                                    "defaultHoverField": "[$personIterator]",
+                                    "attributes": {
+                                      "src": "=getUserImage([$personIterator.email], 'S')",
+                                      "class": "sp-card-userThumbnail"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "openOnEvent": "hover"
+                        },
+                        "children": [
+                          {
+                            "elmType": "span",
+                            "txtContent": "='+' + toString(length([$OIC_x002f_NCOIC]) - (4))"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "style": {
+              "display": "=if(length([$OIC_x002f_NCOIC]) == 1, '', 'none')",
+              "width": "auto",
+              "text-align": "center"
+            },
+            "defaultHoverField": "[$personIterator]",
+            "txtContent": "[$personIterator.title]"
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-displayColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "style": {
+                  "text-align": "center"
+                },
+                "attributes": {
+                  "title": "[$Title]",
+                  "class": "ms-fontColor-neutralPrimary sp-card-content sp-card-highlightedContent",
+                  "role": "heading",
+                  "aria-level": "3"
+                },
+                "txtContent": "=if ([$Title] == '', '–', [$Title])"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "attributes": {
+              "class": "sp-card-lastTextColumnContainer"
+            },
+            "children": [
+              {
+                "elmType": "p",
+                "style": {
+                  "text-align": "center"
+                },
+                "children": [
+                  {
+                    "elmType": "a",
+                    "style": {
+                      "padding-right": "8px",
+                      "font-size": "14px",
+                      "text-decoration": "none",
+                      "color": "#464EB8"
+                    },
+                    "txtContent": " Teams Chat",
+                    "attributes": {
+                      "target": "_blank",
+                      "iconName": "TeamsLogo",
+                      "class": "sp-field-quickActions",
+                      "href": {
+                        "operator": "+",
+                        "operands": [
+                          "https://dod.teams.microsoft.us/l/chat/0/0?users=",
+                          "@[$personIterator.email]"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
