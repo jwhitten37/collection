@@ -1,0 +1,51 @@
+﻿#Requires -Modules AzureAD
+#set script location to base csv off this
+if ($PSScriptRoot) {
+    $ScriptPath = $PSScriptRoot
+} else {
+    $ScriptPath = (Get-Location).Path
+}
+#Connect to Army 365
+if ($null -eq [Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens){
+    Write-host "Not connected to Azure"
+    Connect-AzureAD -AzureEnvironmentName AzureUSGovernment
+} else {
+    $token = [Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens
+    write-host "Connected to tenant: $($token.AccessToken.TenantId) with user: $($token.AccessToken.UserId)"
+}
+        
+#Set where the csv file is located
+$Users = Import-csv "$ScriptPath\**[FILE]**.csv"
+#This is the groupID for the Team
+#Found with this Get-AzureADGroup –SearchString “Insert Group name”
+$GroupObjectID = "**[GROUP-ID]**"
+#Get all members of the group to start
+$GroupMemberList = @(Get-AzureADGroupMember -ObjectId $GroupObjectID -All $true)
+#Store how many users are in the group to start
+$GroupMemberCountBefore = $GroupMemberList.Count
+Foreach($User in $Users){
+    $UsersEmail = $User.email
+    try {
+        #Pull full user object if in Army 365
+        $UserObject = Get-AzureADUser -ObjectId $UsersEmail
+    }
+    catch {
+        Write-Host "User $UsersEmail is not in Army 365"
+        $UserObject = $null
+    }
+    # check the group
+    if ($GroupMemberList.objectId -contains $UserObject.objectID) {
+        Write-Host "User" $UserObject.Displayname "is aready in the TEAM"
+    } else {
+        if ($UserObject.objectID) {
+            Write-Host "User" $UserObject.Displayname "is not in the TEAM, adding now"
+            Add-AzureADGroupMember -ObjectId $GroupObjectID -RefObjectId $UserObject.objectID -ErrorAction SilentlyContinue 
+        }        
+    }
+}
+#Get all members of the group after to compare
+$GroupMemberList = @(Get-AzureADGroupMember -ObjectId $GroupObjectID -All $true)
+#Store out how many users are in the group at the end
+$GroupMemberCountAfter = $GroupMemberList.Count
+#Write out how many users before and after
+Write-Host  "There were $GroupMemberCountBefore group memebers before now there are $GroupMemberCountAfter"
